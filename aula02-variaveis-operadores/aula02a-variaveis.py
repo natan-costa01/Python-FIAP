@@ -16,6 +16,10 @@ print(f"Olá, {nome}!")
 
 #inputs -------
 
-nome = input("Digite seu nome: ")
-print(f"Seja bem-vindo(a) {nome}")
+vel_inicial = input("Digite a velocidade inicial: ")
+vel_media = 60
+
+horas = float(vel_inicial)/float(vel_media)
+
+print(horas)
 
