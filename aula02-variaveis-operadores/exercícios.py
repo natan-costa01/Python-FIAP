@@ -78,14 +78,19 @@ nome_aluno02 = input("Digite o nome do aluno (ou digite 'sem aluno' para finaliz
 notas02 = []
 pesos02 = []
 
-for i in range():
-    nota02 = float(input("Digite a nota: "))
-    peso02 = float(input("Digite o peso: "))
+while True:
+    try:
+        nota02 = float(input("Digite a nota (ou -1 para parar): "))
+        if nota02 == -1:
+            break
+        peso02 = float(input("Digite o peso da nota: "))
+        notas02.append(nota02)
+        pesos02.append(peso02)
+    except ValueError:
+        print("Digite um número válido.")
 
-    notas02.append(nota)
-    pesos02.append(peso)
-
-media_ponderada = sum(notas02*pesos02) / sum(pesos02)
-
-print(f"A média ponderada de {nome_aluno02} é {media_ponderada}!")
-
+if len(notas02) > 0 and sum(pesos02) != 0:
+    media_ponderada = sum(n * p for n, p in zip(notas02, pesos02)) / sum(pesos02)
+    print(f"A média ponderada de {nome_aluno02} é {media_ponderada}!")
+else:
+    print("Não foi possível calcular a média ponderada.")
